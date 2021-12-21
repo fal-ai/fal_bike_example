@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: bike_duration
+    description: Bike duration
+    config:
+      materialized: table
+    columns:
+      - name: bike_id
+      - name: start_date
+      - name: trip_count_last_week
+      - name: trip_duration_last_week
+    meta:
+      owner: "@someone"
+      fal:
+        scripts:
+          - fal_scripts/test.py
+        feature_store:
+          entity_column: bike_id
+          timestamp_column: start_date
+  - name: bike_is_winner
+    description: Bike winner
+    config:
+      materialized: table
+    columns:
+      - name: bike_id
+      - name: date
+      - name: is_winner
+    meta:
+      owner: "@someone"
+      fal:
+        scripts:
+          - fal_scripts/test.py
+        feature_store:
+          entity_column: bike_id
+          timestamp_column: date

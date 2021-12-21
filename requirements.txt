@@ -1,0 +1,4 @@
+dbt-core
+dbt-bigquery
+fal
+slack_sdk
